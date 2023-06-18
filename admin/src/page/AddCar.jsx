@@ -26,6 +26,10 @@ export default function AddCar() {
           }}
         >
           <img src={car.image} alt="car" className="w-full " />
+          {/* <input
+            type="file"
+            className="absolute right-8 bottom-8 flex justify-center items-center rounded-full h-12 w-12 bg-white shadow-xl  shadow-black"
+          /> */}
           <button className="absolute right-8 bottom-8 flex justify-center items-center rounded-full h-12 w-12 bg-white shadow-xl  shadow-black">
             <Pencil />
           </button>

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function SideMenu() {
   const buttons = [
-    { name: "dashboard", path: "/", icon: "" },
+    { name: "Home", path: "/", icon: "" },
     { name: "Cars", path: "/cars", icon: "" },
-    { name: "nemelt", path: "/nemelt", icon: "" },
+    { name: "Contact", path: "/nemelt", icon: "" },
     { name: "Admin", path: "/admin", icon: "" },
   ];
   // const active = "";
