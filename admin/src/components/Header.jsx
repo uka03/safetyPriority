@@ -7,7 +7,7 @@ export default function Header() {
           <input
             className="h-8 w-64 p-3 rounded-xl ml-64"
             type="text"
-            defaultValue="search"
+            placeholder="search"
           />
         </div>
       </div>
