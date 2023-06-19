@@ -3,10 +3,10 @@ import {
   RiInstagramLine,
   RiWhatsappLine,
 } from "react-icons/ri";
-import { BsFillBookmarksFill } from "react-icons/bs";
-import { MdLocationOn } from "react-icons/md";
+import { BsFillBookmarksFill, BsFillTelephoneFill } from "react-icons/bs";
+import { MdLocationOn, MdMail } from "react-icons/md";
 import { AiFillSafetyCertificate } from "react-icons/ai";
-import { FaFlask } from "react-icons/fa";
+import { FaFlask, FaLocationArrow } from "react-icons/fa";
 import { RiHeartPulseFill, RiFolderLockFill } from "react-icons/ri";
 import cars from "./carData.json";
 
@@ -17,9 +17,24 @@ export const navbar = [
 ];
 
 export const socials = [
-  { icon: <RiFacebookBoxLine />, path: "" },
-  { icon: <RiInstagramLine />, path: "" },
-  { icon: <RiWhatsappLine />, path: "" },
+  {
+    icon: <RiFacebookBoxLine />,
+    path: "",
+    name: "Facebook",
+    address: "Safety Priority",
+  },
+  {
+    icon: <RiInstagramLine />,
+    path: "",
+    name: "Instagram",
+    address: "Safety Priority",
+  },
+  {
+    icon: <RiWhatsappLine />,
+    path: "",
+    name: "WhatsApp",
+    address: "Safety Priority",
+  },
 ];
 
 export const differents = [
@@ -89,3 +104,32 @@ export function getCar(id) {
   }
   return car;
 }
+
+export const about = {
+  image:
+    "https://www.viewmongolia.com/mongolia/mongolia-car-rental/hiring-driver-in-mongolia.jpg",
+  description:
+    " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quisquam nostrum fugit voluptatum amet eligendi! Fuga minus incidunt similique aspernatur, amet quam alias officiis architecto consequatur adipisci possimus sed quod odit, saepe asperiores porro provident, quo deleniti? Quos magnam possimus perspiciatis quod? Sed, quas soluta, voluptatibus laudantium dolor adipisci necessitatibus blanditiis libero expedita iure odit eligendi corrupti ad laborum quo.",
+};
+export const contact = {
+  image:
+    "https://backpackingman.com/wp-content/uploads/2016/09/DSC01735-1080x717.jpg",
+  contacts: [
+    {
+      icon: <MdMail />,
+      name: "Email",
+      address: "SafetyPriority@gmail.com",
+    },
+    {
+      icon: <BsFillTelephoneFill />,
+      name: "Phone",
+      address: "88119911",
+    },
+    {
+      icon: <FaLocationArrow />,
+      name: "address",
+      address:
+        "Bayan Bulag Luxury Town, #307, Yalalt Plaza, Ikh toiruu 17/1 5th khoroo, Ulaanbaatar 15150",
+    },
+  ],
+};

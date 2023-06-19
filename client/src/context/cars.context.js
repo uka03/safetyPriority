@@ -58,22 +58,24 @@ export default function CarsProvider({ children }) {
     window.location.href = url;
   }
   useEffect(() => {
-    axios.get(`http://localhost:3030/carType`).then((res) => {
+    axios.get(`https://safetypriority.onrender.com/carType`).then((res) => {
       setCarTypes(res.data);
     });
-    axios.get(`http://localhost:3030/carBrand`).then((res) => {
+    axios.get(`https://safetypriority.onrender.com/carBrand`).then((res) => {
       setCarBrand(res.data);
     });
   }, []);
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:3030/cars?${queryString}`).then((res) => {
-      setcars(res.data);
-      setIsLoading(false);
-    });
     axios
-      .get(`http://localhost:3030/carsTotalPage?${queryString}`)
+      .get(`https://safetypriority.onrender.com/cars?${queryString}`)
+      .then((res) => {
+        setcars(res.data);
+        setIsLoading(false);
+      });
+    axios
+      .get(`https://safetypriority.onrender.com/carsTotalPage?${queryString}`)
       .then((res) => {
         setTotalPages(res.data.totalPage);
       });

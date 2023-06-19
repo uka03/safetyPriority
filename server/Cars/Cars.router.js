@@ -1,5 +1,11 @@
 import express from "express";
-import { getBrand, getCars, getTotalPage, getType } from "./Cars.service.js";
+import {
+  getBrand,
+  getCar,
+  getCars,
+  getTotalPage,
+  getType,
+} from "./Cars.service.js";
 
 const Cars = express.Router();
 Cars.use(express.json());
@@ -7,6 +13,12 @@ Cars.use(express.json());
 Cars.get("/cars", async (req, res) => {
   const query = req.query;
   let data = await getCars(query);
+  if (data) res.status(200).send(data);
+});
+Cars.get("/car/:id", async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  let data = await getCar(id);
   if (data) res.status(200).send(data);
 });
 

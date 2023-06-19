@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BsCarFrontFill,
   BsFillPeopleFill,
@@ -7,86 +7,133 @@ import {
 import { FaSprayCan } from "react-icons/fa";
 import { IoIosSpeedometer } from "react-icons/io";
 import { GiCarDoor } from "react-icons/gi";
-import { TbManualGearbox } from "react-icons/tb";
+import { TbManualGearbox, TbSteeringWheel } from "react-icons/tb";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { BsFillXCircleFill } from "react-icons/bs";
 import { useParams } from "react-router";
 import Drivetrain from "../images/Drivetrain";
 import Intrior from "../images/intrior";
-import { getCar } from "../util/util";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Car(props) {
   const id = useParams().id;
-  const car = getCar(id);
-  console.log(` bg-[${car.color}] `);
+  const [car, setCar] = useState();
+  useEffect(() => {
+    axios.get(`https://safetypriority.onrender.com/car/${id}`).then((res) => {
+      setCar(res.data);
+    });
+  }, [id]);
   return (
-    <div className="flex flex-wrap container py-24 gap-2 mx-auto min-h-[700px]">
-      <div
-        className=" w-[500px] h-[500px] bg-blue-500 rounded-[80px] z-10 flex justify-center items-center p-6"
-        // eslint-disable-next-line react/style-prop-object
-        style={{
-          background:
-            "linear-gradient(265.64deg, #1F4590 3.74%, #97B9FD 97.16%)",
-        }}
-      >
-        <img src={car.image} alt="car" className="w-full " />
-      </div>
-      <div className=" rounded-[50px] border-4 border-blue-900 w-[840px] h-[540px] -ms-32 mt-32 p-10 ps-36">
-        <div className="w-full h-full flex flex-col justify-between">
-          <div className="flex flex-col gap-10">
-            <p className="text-3xl font-medium">{car.name}</p>
-            <p>{car.description}</p>
-          </div>
-          <div className="flex flex-wrap p-10 gap-x-10 gap-y-5 justify-between mb-12">
-            <div className="flex items-center gap-2">
-              <FaSprayCan size={20} />
-              <p>Color : </p>
-              <div
-                className={`w-7 h-7 bg-[${car.color}] rounded-full border border-black`}
-              ></div>
+    car && (
+      <div className="flex flex-wrap container py-20 gap-2 mx-auto min-h-[700px] p-5">
+        <div
+          className="w-[350px] rounded-3xl p-3  lg:w-[40%] lg:h-[500px] bg-blue-500 lg:rounded-[80px] z-10 flex justify-center items-center md:p-5 md:mt-5"
+          // eslint-disable-next-line react/style-prop-object
+          style={{
+            background:
+              "linear-gradient(265.64deg, #1F4590 3.74%, #97B9FD 97.16%)",
+          }}
+        >
+          <img src={car.image} alt="car" className="w-full " />
+        </div>
+        <div className="rounded-3xl p-3 md:rounded-[50px] border-4 border-blue-900 md:w-[840px] lg:w-[65%]  md:h-[400px] lg:h-auto lg:-ms-32 lg:mt-32 lg:p-10 lg:ps-36 md:p-5">
+          <div className="w-full h-full flex flex-col justify-between gap-5">
+            <div className="flex flex-col gap-3 lg:gap-10">
+              <p className=" text-lg md:text-3xl font-medium">{car.name}</p>
+              <p className="text-xs md:text-base">{car.description}</p>
             </div>
-            <div className="flex items-center gap-2">
-              <Intrior />
-              <p>Interior color: : </p>
-              <div
-                className={`w-7 h-7 bg-[${car.interior_color}] rounded-full border border-black`}
-              ></div>
-            </div>
-            <div className="flex items-center gap-2">
-              <BsMusicPlayerFill size={20} />
-              <p>Music : {car.music}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <BsCarFrontFill size={20} />
-              <p>Type : {car.type}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <BsFillPeopleFill size={20} />
-              <p>Max.Passenger {car.maxPassenger}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="">
-                <Drivetrain />
+            <div className="flex flex-wrap  gap-7 lg:p-10 lg:gap-x-10 lg:gap-y-5 justify-between lg:mb-12 md:text-base text-xs">
+              <div className="flex  items-center gap-2 shrink">
+                <div className="text-base md:text-xl">
+                  <FaSprayCan />
+                </div>
+                <p>Color : </p>
+                <div
+                  className={` w-5 h-5 md:w-7 md:h-7  rounded-full border border-black`}
+                  style={{
+                    background: `${car.color}`,
+                  }}
+                ></div>
               </div>
-              <p>Drivetrain: {car.drivetrain}</p>
+              <div className="flex  items-center gap-2 shrink-0">
+                <div className="text-base md:text-xl">
+                  <Intrior />
+                </div>
+                <p>Interior color: </p>
+                <div
+                  className={` w-5 h-5 md:w-7 md:h-7 rounded-full border border-black`}
+                  style={{
+                    background: `${car.interior_color}`,
+                  }}
+                ></div>
+              </div>
+              <div className="flex  items-center gap-2 shrink">
+                <div className="text-base md:text-xl">
+                  <BsMusicPlayerFill />
+                </div>
+                <p>Music : {car.music}</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink-0">
+                <div className="text-base md:text-xl">
+                  <BsCarFrontFill />
+                </div>
+                <p>Type : {car.type}</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink">
+                <div className="text-base md:text-xl">
+                  <BsFillPeopleFill />
+                </div>
+                <p>Max.Passenger {car.maxPassenger}</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink-0">
+                <div className="">
+                  <Drivetrain />
+                </div>
+                <p>Drivetrain: {car.drivetrain}</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink">
+                <div className="text-base md:text-xl">
+                  <TbManualGearbox />
+                </div>
+                <p>Gearbox : {car.gearBox}</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink-0">
+                <div className="text-base md:text-xl">
+                  <IoIosSpeedometer />
+                </div>
+                <p>Gearbox : {car.speed}km/h</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink">
+                <div className="text-base md:text-xl">
+                  <GiCarDoor />
+                </div>
+                <p>Door : {car.door}</p>
+              </div>
+              <div className="flex  items-center gap-2 shrink">
+                <div className="text-base md:text-xl">
+                  <TbSteeringWheel />
+                </div>
+                <div className="flex items-center gap-2">
+                  Driver :{" "}
+                  {car.driver ? (
+                    <div className="text-base md:text-lg">
+                      <AiFillCheckCircle color="green" />
+                    </div>
+                  ) : (
+                    <div className="text-base md:text-lg">
+                      <BsFillXCircleFill color="red" />
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <TbManualGearbox size={20} />
-              <p>Gearbox : {car.gearBox}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <IoIosSpeedometer size={20} />
-              <p>Gearbox : {car.speed}km/h</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <GiCarDoor size={20} />
-              <p>door : {car.door}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <TbManualGearbox size={20} />
-              <p>Gearbox : {car.gearBox}</p>
+            <div className=" w-full text-end text-lg font-bold text-blue-900 md:text-2xl">
+              USD {car.price}/Day
             </div>
           </div>
         </div>
       </div>
-    </div>
+    )
   );
 }

@@ -17,7 +17,12 @@ export async function getCars(query) {
     return [];
   }
 }
-
+export async function getCar(id) {
+  try {
+    const data = await Car.findOne({ _id: id });
+    return data;
+  } catch (error) {}
+}
 export async function getTotalPage(query) {
   try {
     const limit = parseInt(query.limit) || 10;

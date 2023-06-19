@@ -13,7 +13,7 @@ export default function Card({ car }) {
   }
   return (
     <div
-      className="w-[170px] h-[210px]  rounded-xl border border-black lg:shadow-lg lg:rounded-3xl lg:w-[280px] lg:h-[400px] p-3 lg:p-5 flex flex-col lg:gap-4 gap-1"
+      className="w-[160px] h-[210px]  rounded-xl border border-black lg:shadow-lg lg:rounded-3xl lg:w-[280px] lg:h-[400px] p-3 lg:p-5 flex flex-col lg:gap-4 gap-1"
       onClick={() => {
         carCartOnClick(car._id);
       }}
