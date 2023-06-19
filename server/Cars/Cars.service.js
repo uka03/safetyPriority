@@ -30,9 +30,9 @@ export async function getTotalPage(query) {
     delete query.page;
     const count = await Car.countDocuments(query);
 
-    const totalPages = Math.ceil(count / limit);
+    const totalPage = Math.ceil(count / limit);
     console.log(count, totalPages, query);
-    return { totalPages, count };
+    return { totalPage, count };
   } catch (error) {}
 }
 
