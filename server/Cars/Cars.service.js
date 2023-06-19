@@ -32,7 +32,7 @@ export async function getTotalPage(query) {
 
     const totalPages = Math.ceil(count / limit);
     console.log(count, totalPages, query);
-    return totalPages;
+    return { totalPages, count };
   } catch (error) {}
 }
 
