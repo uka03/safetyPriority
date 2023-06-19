@@ -47,7 +47,7 @@ export default function HomeCard({ car }) {
         </div>
       </div>
       <div className="w-full text-end">
-        <p className="text-2xl text-blue-900 font-medium">
+        <p className="text-2xl text-amber-500 font-medium">
           USD {car.price}/Day
         </p>
       </div>

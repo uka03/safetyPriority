@@ -32,12 +32,12 @@ export default function Car(props) {
           // eslint-disable-next-line react/style-prop-object
           style={{
             background:
-              "linear-gradient(265.64deg, #1F4590 3.74%, #97B9FD 97.16%)",
+              "linear-gradient(90deg, rgba(235,235,235,1) 0%, rgba(245,158,11,1) 100%)",
           }}
         >
           <img src={car.image} alt="car" className="w-full " />
         </div>
-        <div className="rounded-3xl p-3 md:rounded-[50px] border-4 border-blue-900 md:w-[840px] lg:w-[65%]  md:h-[400px] lg:h-auto lg:-ms-32 lg:mt-32 lg:p-10 lg:ps-36 md:p-5">
+        <div className="rounded-3xl p-3 md:rounded-[50px] border-4 border-amber-500 md:w-[840px] lg:w-[65%]  md:h-[400px] lg:h-auto lg:-ms-32 lg:mt-32 lg:p-10 lg:ps-36 md:p-5">
           <div className="w-full h-full flex flex-col justify-between gap-5">
             <div className="flex flex-col gap-3 lg:gap-10">
               <p className=" text-lg md:text-3xl font-medium">{car.name}</p>
@@ -128,7 +128,7 @@ export default function Car(props) {
                 </div>
               </div>
             </div>
-            <div className=" w-full text-end text-lg font-bold text-blue-900 md:text-2xl">
+            <div className=" w-full text-end text-lg font-bold text-blue-900 md:text-3xl">
               USD {car.price}/Day
             </div>
           </div>

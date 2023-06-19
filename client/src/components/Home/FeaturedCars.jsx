@@ -48,7 +48,7 @@ export default function FeaturedCars() {
             navigate("cars");
           }}
         >
-          See <span className="text-blue-800">More {">>>"}</span>
+          See <span className="text-amber-500">More {">>>"}</span>
         </p>
       </div>
       <div className="w-full ">

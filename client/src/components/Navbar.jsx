@@ -20,7 +20,7 @@ export default function Navbar() {
   }, []);
 
   const navbarStyle = {
-    backgroundColor: `rgba(31, 69, 144, ${
+    backgroundColor: `rgba(245, 158, 11, ${
       scrollY > 0.3 ? 1 : location.pathname === "/" ? 0.3 : 1
     })`,
     transition: "background-color 0.3s ease-in-out",
@@ -46,7 +46,7 @@ export default function Navbar() {
             </div>
           ))}
         </div>
-        <div className="flex text-xl sm:text-3xl gap-4 border-2 border-white rounded-xl py-1 px-2 sm:py-2 sm:px-3 order-2 sm:order-1 bg-blue-900 bg-opacity-60">
+        <div className="flex text-xl sm:text-3xl gap-4 border-2 border-white rounded-xl py-1 px-2 sm:py-2 sm:px-3 order-2 sm:order-1 bg-amber-500 bg-opacity-60">
           {socials.map((social, index) => {
             return (
               <a href={social.path} key={index}>

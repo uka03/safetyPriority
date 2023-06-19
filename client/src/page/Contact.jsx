@@ -12,16 +12,16 @@ export default function Contact(props) {
             srcset=""
           />
         </div>
-        <div className="md:w-3/5 flex p-4 flex-col justify-around border-4 border-blue-900 rounded-3xl md:p-10 shadow-xl shadow-blue-600">
-          <h1 className="w-full text-4xl md:text-7xl text-center text-blue-900">
+        <div className="md:w-3/5 flex p-4 flex-col justify-around border-4 border-amber-500 rounded-3xl md:p-10 shadow-xl shadow-amber-400">
+          <h1 className="w-full text-4xl md:text-7xl text-center text-amber-500">
             About us
           </h1>
           <p className="md:text-base text-xs">{about.description}</p>
         </div>
       </div>
       <div className="w-full flex flex-col md:flex-row justify-between p-4 gap-5">
-        <div className="md:w-3/5 flex flex-col gap-5 justify-around border-4 border-blue-900 rounded-3xl p-4 md:p-10 shadow-xl shadow-blue-600 order-2">
-          <h1 className="w-full text-4xl md:text-7xl text-center text-blue-900 ">
+        <div className="md:w-3/5 flex flex-col gap-5 justify-around border-4 border-amber-500 rounded-3xl p-4 md:p-10 shadow-xl shadow-amber-400 order-2">
+          <h1 className="w-full text-4xl md:text-7xl text-center text-amber-500 ">
             Contact us
           </h1>
           <div className="flex justify-between text-xs md:text-base gap-4">

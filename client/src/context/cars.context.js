@@ -12,9 +12,10 @@ export default function CarsProvider({ children }) {
   const [totalPage, setTotalPages] = useState(0);
   const [carTypes, setCarTypes] = useState([]);
   const [carBrand, setCarBrand] = useState([]);
+  const [results, setResults] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const query = useLocation();
-  const limit = 15;
+  const limit = 20;
 
   const queryParams = new URLSearchParams(query.search);
   const queryObj = {};
@@ -27,20 +28,26 @@ export default function CarsProvider({ children }) {
 
   function addQueryHandler(key, value) {
     if (queryObj[key]) {
-      if (typeof queryObj[key] === "string")
-        queryObj[key] = queryObj[key].split(",");
-
-      if (queryObj[key].some((n) => n === value)) {
-        queryObj[key].splice(queryObj[key].indexOf(value), 1);
-        if (queryObj[key].length == 0) {
-          delete queryObj[key];
-        }
-      } else {
-        const newarr = [...queryObj[key], value];
-        queryObj[key] = newarr;
+      queryObj[key] = value;
+      if (typeof queryObj[key] === "string") queryObj[key] = [queryObj[key]];
+      console.log(queryObj[key], "f");
+      if (queryObj[key] == "all") {
+        delete queryObj[key];
       }
+      // if (queryObj[key].some((n) => n === value)) {
+      //   queryObj[key].splice(queryObj[key].indexOf(value), 1);
+      //
+      // } else {
+      //   const newarr = [...queryObj[key], value];
+      //   queryObj[key] = newarr;
+      // }
       queryObj.page = "1";
     } else {
+      if (typeof queryObj[key] === "string") queryObj[key] = [queryObj[key]];
+      console.log(queryObj[key], "d");
+      if (queryObj[key] == "all") {
+        delete queryObj[key];
+      }
       queryObj.page = "1";
       queryObj[key] = value;
     }
@@ -77,7 +84,9 @@ export default function CarsProvider({ children }) {
     axios
       .get(`https://safetypriority.onrender.com/carsTotalPage?${queryString}`)
       .then((res) => {
+        console.log(res.data);
         setTotalPages(res.data.totalPage);
+        setResults(res.data.count);
       });
   }, [queryString]);
 
@@ -91,6 +100,7 @@ export default function CarsProvider({ children }) {
         queryObj,
         addQueryHandler,
         onChangePage,
+        results,
         isLoading,
       }}
     >

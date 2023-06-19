@@ -7,10 +7,10 @@ const FilterSidebar = () => {
   return (
     <div className="flex  flex-col w-full bg-white top-24 border-r">
       <div className="p-4 border-b">
-        <h2 className="text-xl text-blue-900 font-bold">Filter Sidebar</h2>
+        <h2 className="text-xl text-amber-500 font-bold">Filter Sidebar</h2>
       </div>
       <div className="p-4 border-b">
-        <h3 className="text-lg font-medium text-blue-900 mb-2">Type</h3>
+        <h3 className="text-lg font-medium text-amber-500 mb-2">Type</h3>
         <ul className="space-y-2">
           {carTypes.map((type, index) => (
             <li key={index} onClick={() => addQueryHandler("type", type)}>
@@ -30,7 +30,7 @@ const FilterSidebar = () => {
       </div>
 
       <div className="p-4">
-        <h3 className="text-lg font-medium text-blue-900 mb-2">Brand</h3>
+        <h3 className="text-lg font-medium text-amber-500 mb-2">Brand</h3>
         <ul className="space-y-2">
           {carBrand.map((brand, index) => (
             <li key={index} onClick={() => addQueryHandler("brand", brand)}>
