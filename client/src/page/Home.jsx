@@ -6,7 +6,7 @@ import Safe from "../components/Home/Safe";
 
 export default function Home(props) {
   return (
-    <div className="flex flex-col gap-16 mb-24 w-full">
+    <div className="flex flex-col gap-5 lg:gap-16 mb-24 w-full">
       <Header />
       <FeaturedCars />
       <Different />

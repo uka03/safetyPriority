@@ -9,21 +9,26 @@ import "primereact/resources/primereact.min.css";
 import Footer from "./components/Footer";
 import NotFound from "./page/NotFound";
 import Car from "./page/Car";
+import CarsProvider from "./context/cars.context";
+import OffCanvasMenu from "./page/Test";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-[100vh] justify-between">
-      <Navbar />
+    <CarsProvider>
+      <div className="flex flex-col min-h-[100vh] justify-between">
+        <Navbar />
 
-      <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<Cars />} />
-        <Route path="/cars/:id" element={<Car />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
-    </div>
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/test" element={<OffCanvasMenu />} />
+          <Route path="/cars" element={<Cars />} />
+          <Route path="/cars/:id" element={<Car />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </CarsProvider>
   );
 }
 

@@ -40,7 +40,7 @@ export default function Car(props) {
               <FaSprayCan size={20} />
               <p>Color : </p>
               <div
-                className={`w-7 h-7 bg-[${car.color}]   rounded-full border border-black`}
+                className={`w-7 h-7 bg-[${car.color}] rounded-full border border-black`}
               ></div>
             </div>
             <div className="flex items-center gap-2">
@@ -56,7 +56,7 @@ export default function Car(props) {
             </div>
             <div className="flex items-center gap-2">
               <BsCarFrontFill size={20} />
-              <p>Type : {car.category}</p>
+              <p>Type : {car.type}</p>
             </div>
             <div className="flex items-center gap-2">
               <BsFillPeopleFill size={20} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { useCars } from "../../context/cars.context";
 
-const FilterSidebar = () => {
+const FilterOffCanva = () => {
   const { carTypes, carBrand, addQueryHandler, queryObj } = useCars();
 
   return (
@@ -54,4 +54,4 @@ const FilterSidebar = () => {
   );
 };
 
-export default FilterSidebar;
+export default FilterOffCanva;

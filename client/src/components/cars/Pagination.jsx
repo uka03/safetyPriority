@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -19,9 +20,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <ul className="flex gap-3">
         <li>
           <button
-            className="border rounded-md p-2 text-2xl text-blue-900 min-w-[60px] min-h-[50px] flex justify-center items-center hover:bg-blue-800 hover:text-white border-blue-900 disabled:border-gray-400 disabled:bg-gray-200 disabled:text-gray-400"
-            disabled={currentPage === 1}
-            onClick={() => onPageChange(currentPage - 1)}
+            className="border rounded-md p-2 text-xl md:text-2xl text-blue-900 min-w-[40px] min-h-[35px] md:min-w-[60px] md:min-h-[50px]  flex justify-center items-center hover:bg-blue-800 hover:text-white border-blue-900 disabled:border-gray-400 disabled:bg-gray-200 disabled:text-gray-400"
+            disabled={currentPage == 1}
+            onClick={() => onPageChange(Number(currentPage) - 1)}
           >
             <IoIosArrowBack />
           </button>
@@ -30,8 +31,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         {pages.map((page) => (
           <li key={page}>
             <button
-              className={`border rounded-md p-2 text-lg min-w-[60px]  min-h-[50px] border-blue-900 text-blue-900 hover:bg-blue-800 hover:text-white ${
-                page === currentPage ? "bg-blue-800 text-white" : ""
+              className={`border rounded-md p-2 text-sm md:text-lg min-w-[40px] min-h-[35px] md:min-w-[60px] md:min-h-[50px]  border-blue-900 text-blue-900 hover:bg-blue-800 hover:text-white ${
+                page == currentPage ? "bg-blue-800 text-white" : ""
               }`}
               onClick={() => onPageChange(page)}
             >
@@ -42,9 +43,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
         <li>
           <button
-            className="border rounded-md p-2 text-2xl text-blue-900 min-w-[60px] min-h-[50px] flex justify-center items-center hover:bg-blue-800 hover:text-white border-blue-900 disabled:border-gray-400 disabled:bg-gray-200 disabled:text-gray-400"
-            disabled={currentPage === totalPages}
-            onClick={() => onPageChange(currentPage + 1)}
+            className="border rounded-md p-2 text-xl md:text-2xl text-blue-900 min-w-[40px] min-h-[35px] md:min-w-[60px] md:min-h-[50px]  flex justify-center items-center hover:bg-blue-800 hover:text-white border-blue-900 disabled:border-gray-400 disabled:bg-gray-200 disabled:text-gray-400"
+            disabled={currentPage == totalPages}
+            onClick={() => onPageChange(Number(currentPage) + 1)}
           >
             <IoIosArrowForward />
           </button>
