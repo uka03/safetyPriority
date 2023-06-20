@@ -18,7 +18,7 @@ export default function Card({ car }) {
         carCartOnClick(car._id);
       }}
     >
-      <div className="border w-full h-3/4 rounded-xl lg:rounded-3xl">
+      <div className="border w-full h-2/4 rounded-xl lg:rounded-3xl">
         <img
           src={car.image}
           alt={car.name}
