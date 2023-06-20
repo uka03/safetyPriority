@@ -24,6 +24,7 @@ export default function Car(props) {
       setCar(res.data);
     });
   }, [id]);
+  document.title = "Car | Car Rental";
   return (
     car && (
       <div className="flex flex-wrap container py-20 gap-2 mx-auto min-h-[700px] p-5">

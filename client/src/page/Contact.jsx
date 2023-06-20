@@ -1,6 +1,7 @@
 import React from "react";
 import { about, contact, socials } from "../util/util";
 export default function Contact(props) {
+  document.title = "Contact | Car Rental";
   return (
     <div className="container mx-auto mt-20 py-10">
       <div className="w-full flex flex-col md:flex-row justify-between p-4 gap-5">

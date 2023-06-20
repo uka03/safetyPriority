@@ -9,7 +9,7 @@ import SelectFilter from "../components/cars/SelectFilter";
 export default function Cars(props) {
   const { cars, totalPage, queryObj, onChangePage, isLoading, results } =
     useCars();
-
+  document.title = "Cars | Car Rental";
   return (
     <div className="relative container mx-auto py-24 flex flex-col gap-5 px-4">
       <div className="flex flex-col gap-5 ">
