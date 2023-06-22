@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const carSchema = new mongoose.Schema(
   {
-    _id: String,
     name: String,
     brand: String,
     image: String,

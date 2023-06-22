@@ -52,3 +52,20 @@ export async function getBrand() {
     return error;
   }
 }
+
+export async function updateCar(id, body) {
+  try {
+    const result = await Car.updateOne({ _id: id }, body);
+    return result;
+  } catch (error) {
+    return error;
+  }
+}
+export async function createCar(body) {
+  try {
+    const result = await Car.insertMany(body);
+    return result;
+  } catch (error) {
+    return error;
+  }
+}

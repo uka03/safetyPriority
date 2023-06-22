@@ -1,11 +1,16 @@
 import express from "express";
 import {
+  createCar,
   getBrand,
   getCar,
   getCars,
   getTotalPage,
   getType,
+  updateCar,
 } from "./Cars.service.js";
+import multer from "multer";
+import { nanoid } from "nanoid";
+import { uploadImage } from "../cloudinary/uploadService.js";
 
 const Cars = express.Router();
 Cars.use(express.json());
@@ -45,4 +50,61 @@ Cars.get("/carBrand", async (req, res) => {
 
   res.status(200).send(carTypes);
 });
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "/tmp");
+  },
+  filename: (req, file, cb) => {
+    const ext = extractExtension(file.originalname);
+    const newName = nanoid() + "." + ext;
+    cb(null, newName);
+  },
+});
+
+const extractExtension = (name) => {
+  try {
+    const splitted = name.split(".");
+    return splitted[splitted.length - 1];
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const upload = multer({ storage: storage });
+
+Cars.put("/cars/:id", upload.single("image"), async (req, res) => {
+  try {
+    let imageUrl;
+    const id = req.params.id;
+    const resbody = req.body.body;
+    const body = JSON.parse(resbody);
+    if (req.file) {
+      imageUrl = await uploadImage(req.file);
+      body.image = imageUrl;
+    }
+    body.update_date = Date();
+    const result = await updateCar(id, body);
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+  }
+});
+Cars.post("/cars", upload.single("image"), async (req, res) => {
+  try {
+    let imageUrl;
+    const resbody = req.body.body;
+    const body = JSON.parse(resbody);
+    if (req.file) {
+      imageUrl = await uploadImage(req.file);
+      body.image = imageUrl;
+    }
+    body.update_date = Date();
+    body.created_date = Date();
+    const result = await createCar(body);
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 export default Cars;
