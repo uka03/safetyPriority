@@ -69,3 +69,12 @@ export async function createCar(body) {
     return error;
   }
 }
+
+export async function deleteCar(id) {
+  try {
+    const result = await Car.deleteOne({ _id: id });
+    return result;
+  } catch (error) {
+    return error;
+  }
+}

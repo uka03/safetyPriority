@@ -1,34 +1,27 @@
-import { Route, Routes } from "react-router";
 import "./App.css";
-
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
+import { Route, Routes } from "react-router";
+import Login from "./page/Login.jsx";
 import Home from "./page/Home";
-// import Login from "./page/Login";
-import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import Cars from "./page/Cars";
-import AddCar from "./page/AddCar";
-
+import Car from "./page/Car";
 function App() {
   return (
-    <>
+    <div className="w-full relative">
       <Header />
-      <div className="flex justify-center bg-mycolor">
-        <div className="flex container justify-between">
-          <SideMenu />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cars" element={<Cars />} />
-            <Route path="/test" element={<AddCar />} />
-          </Routes>
-          {/* login page harahiig husvel ene commentuudiig arilgahad l bolno hha */}
-          {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-            <Login />
-          </div> */}
-        </div>
+      <div className="flex gap-5">
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cars" element={<Cars />} />
+          <Route path="/cars/:id" element={<Car />} />
+        </Routes>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -34,13 +34,6 @@ export default function CarsProvider({ children }) {
       if (queryObj[key] == "all") {
         delete queryObj[key];
       }
-      // if (queryObj[key].some((n) => n === value)) {
-      //   queryObj[key].splice(queryObj[key].indexOf(value), 1);
-      //
-      // } else {
-      //   const newarr = [...queryObj[key], value];
-      //   queryObj[key] = newarr;
-      // }
       queryObj.page = "1";
     } else {
       if (typeof queryObj[key] === "string") queryObj[key] = [queryObj[key]];

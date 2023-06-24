@@ -1,34 +1,55 @@
-export default function Login() {
-  return (
-    <>
-      <div className="h-screen w-full bg-mycolor absolute z-20 mb-1.5 flex">
-        <div className="w-1/2 bg-button h-screen">
-          <img
-            src="https://img.freepik.com/premium-photo/beautiful-landscape-based-3d-rendering-illustration_771975-25.jpg?w=500"
-            alt=""
-            className="w-full h-screen"
-          />
-        </div>
-        <div className=" w-1/2 flex justify-center items-center">
-          <form className="flex flex-col h-96 text-white justify-around items-center ">
-            <div className="text-7xl font-bold">Safety Priority</div>
-            <div className="ml-auto font-bold">Mongolian car rental</div>
-            <div className="text-3xl font-bold">Dashboard Log in</div>
-            <input
-              className="h-12 w-3/4 text-black px-5  rounded-2xl"
-              type="text"
-              placeholder="Phone number"
-            />
+import React from "react";
+import { useState } from "react";
+import { useUsers } from "../context/User.context";
 
-            <input
-              className="h-12 w-3/4 text-black px-5 rounded-2xl"
-              type="password"
-              placeholder="password"
-            />
-            <button className="h-12 w-3/4 bg-button rounded-2xl">Log in</button>
-          </form>
+export default function Login(props) {
+  const { Login } = useUsers();
+  const [name, setName] = useState();
+  const [password, setPassword] = useState();
+  return (
+    <div className="w-full absolute h-[100vh] flex top-0 z-50 bg-white ">
+      <div
+        className="w-1/2 h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `url( https://wallpapercave.com/wp/wp5177861.jpg)`,
+        }}
+      ></div>
+      <div className="w-1/2 flex flex-col mt-24 items-center gap-20 ">
+        <div className=""></div>
+        <div className="">
+          <h1 className="text-7xl font-bold">
+            {" "}
+            <span className="text-amber-500">Car</span> rental
+          </h1>
+          <p className="text-end text-2xl">Safety Priority </p>
         </div>
+        <form
+          className="w-2/5 flex flex-col gap-5"
+          onSubmit={(e) => {
+            e.preventDefault(); // Prevent form submission
+            Login({ name, password });
+          }}
+        >
+          <input
+            placeholder="Admin name"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            className=" w-full rounded-full border-2 border-amber-500 px-5 py-2 focus:border-amber-400 focus:shadow focus:shadow-amber-500 focus:outline-none"
+          />
+          <input
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            className=" w-full rounded-full border-2 border-amber-500 px-5 py-2 focus:border-amber-400 focus:shadow focus:shadow-amber-500 focus:outline-none"
+          />
+          <button
+            className="border rounded-full px-5 py-2 hover:border-amber-500 hover:bg-amber-500 hover:text-white duration-500 transition-all"
+            type="submit"
+          >
+            Log in
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   );
 }

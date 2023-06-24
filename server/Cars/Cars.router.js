@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createCar,
+  deleteCar,
   getBrand,
   getCar,
   getCars,
@@ -102,6 +103,16 @@ Cars.post("/cars", upload.single("image"), async (req, res) => {
     body.created_date = Date();
     const result = await createCar(body);
     res.send(result);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+Cars.delete("/cars/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = deleteCar(id);
+    res.send(result).status(200);
   } catch (error) {
     console.error(error);
   }
