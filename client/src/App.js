@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import NotFound from "./page/NotFound";
 import Car from "./page/Car";
 import CarsProvider from "./context/cars.context";
-import OffCanvasMenu from "./page/Test";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<OffCanvasMenu />} />
           <Route path="/cars" element={<Cars />} />
           <Route path="/cars/:id" element={<Car />} />
           <Route path="/contact" element={<Contact />} />
