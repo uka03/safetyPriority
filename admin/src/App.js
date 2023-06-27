@@ -8,6 +8,9 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Cars from "./page/Cars";
 import Car from "./page/Car";
+import Admins from "./page/Admins";
+import HeaderClient from "./components/webEdit/HeaderClient";
+import Webedit from "./page/Webedit";
 function App() {
   return (
     <div className="w-full relative">
@@ -16,9 +19,13 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cars" element={<Cars />} />
-          <Route path="/cars/:id" element={<Car />} />
+          <Route path="login" element={<Login />} />
+          <Route path="cars" element={<Cars />} />
+          <Route path="admins" element={<Admins />} />
+          <Route path="cars/:id" element={<Car />} />
+          <Route path="webedit" element={<Webedit />}>
+            <Route path="header" element={<HeaderClient />} />
+          </Route>
         </Routes>
       </div>
     </div>

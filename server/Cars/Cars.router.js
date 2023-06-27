@@ -23,7 +23,7 @@ Cars.get("/cars", async (req, res) => {
 });
 Cars.get("/car/:id", async (req, res) => {
   const id = req.params.id;
-  console.log(id);
+
   let data = await getCar(id);
   if (data) res.status(200).send(data);
 });
@@ -32,10 +32,9 @@ Cars.get("/carsTotalPage", async (req, res) => {
   const query = req.query;
   try {
     const { totalPage, count } = await getTotalPage(query);
-    console.log(totalPage);
+
     res.status(200).send({ totalPage, count });
   } catch (error) {
-    console.error("Error fetching paginated notes:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

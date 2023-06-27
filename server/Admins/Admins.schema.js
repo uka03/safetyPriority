@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const adminSchema = new mongoose.Schema(
   {
-    _id: String,
+    _id: Schema.Types.ObjectId,
     name: String,
     password: String,
     email: String,

@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "Renting cars have never been this easy",
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+  },
+
+  "different": {
+    "title": "Why We Are Different",
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+    "cards": [
+      {
+        "title": "Easy Booking",
+        "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+      },
+      {
+        "title": "Secure Payments",
+        "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+      },
+      {
+        "title": "24/7 Tracking",
+        "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+      }
+    ]
+  },
+
+  "safe": {
+    "title": "Car rental keeps you safe",
+    "description": "The safety of our employees and renters is our number one priority. In addition to being confident your vehicle is cleaned and sanitized every time you rent, you can also feel confident that we will take every opportunity to enhance the health and safety measures currently practiced in our operations.",
+    "card": [
+      "Every car is thoroughly sanitized and cleaned",
+      "All of our employees wear masks",
+      "We stay up to date with all protocol from the CDC"
+    ]
+  },
+  "about us": {
+    "title": "About us",
+    "image": "https://www.viewmongolia.com/mongolia/mongolia-car-rental/hiring-driver-in-mongolia.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quisquam nostrum fugit voluptatum amet eligendi! Fuga minus incidunt similique aspernatur, amet quam alias officiis architecto consequatur adipisci possimus sed quod odit, saepe asperiores porro provident, quo deleniti? Quos magnam possimus perspiciatis quod? Sed, quas soluta, voluptatibus laudantium dolor adipisci necessitatibus blanditiis libero expedita iure odit eligendi corrupti ad laborum quo."
+  },
+  "contact_us": {
+    "image": "https://backpackingman.com/wp-content/uploads/2016/09/DSC01735-1080x717.jpg",
+    "title": "Contact us",
+    "Facebook": "https://www.facebook.com/uka.yura.1",
+    "Instagram": "https://www.instagram.com/profile-name/",
+    "whatsApp": "https://wa.me/1234567890?text=Hello",
+    "email": "safety@gmail.com",
+    "phone": "(976) 88119191",
+    "address": "Bayan Bulag Luxury Town, #307, Yalalt Plaza, Ikh toiruu 17/1 5th khoroo, Ulaanbaatar 15150"
+  }
+}

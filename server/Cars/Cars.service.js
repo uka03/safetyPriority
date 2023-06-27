@@ -6,7 +6,6 @@ export async function getCars(query) {
     delete query.page;
     const limit = query.limit || 10;
     delete query.limit;
-    console.log(query, "cars");
     let cars = await Car.find(query)
       .skip((page - 1) * limit)
       .limit(limit)
@@ -31,7 +30,7 @@ export async function getTotalPage(query) {
     const count = await Car.countDocuments(query);
 
     const totalPage = Math.ceil(count / limit);
-    console.log(count, totalPage, query);
+
     return { totalPage, count };
   } catch (error) {}
 }

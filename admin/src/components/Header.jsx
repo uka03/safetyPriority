@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { BiSearch, BiDownArrow, BiLogOut, BiCog } from "react-icons/bi";
+import { useUsers } from "../context/User.context";
 
 export default function Header(props) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { admin } = useUsers();
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -36,7 +37,7 @@ export default function Header(props) {
             onClick={toggleDropdown}
           >
             <p>Admin :</p>
-            <p>Naraa</p>
+            <p>{admin.name}</p>
             <div
               className={` transition-transform ${
                 isOpen ? "rotate-180" : "rotate-0"
